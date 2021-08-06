@@ -1,0 +1,29 @@
+<% if @arrived.present? %>
+  <h1 class="text-center">Arrived Ships</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Serial No.</th>
+          <th scope="col">Name</th>
+          <th scope="col">status</th>
+          <th scope="col">Origin</th>
+          <th scope="col">Total Passengers</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <% @arrived.each_with_index do |ship, i| %>
+        <tbody>
+          <tr>
+            <th scope="row"><%= i + 1 %></th>
+            <td><%= ship.name %></td>
+            <td><%= ship.status %></td>
+            <td><%= ship.origin %></td>
+            <td><%= ship.passengers %></td>
+            <td><%= link_to "Send to queue", send_to_queue_ship_path(ship) %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+<% else %>
+ <h1 class="text-center">No Ships arrived!</h1>
+<% end %>

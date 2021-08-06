@@ -1,0 +1,29 @@
+<% if @processed.present? %>
+  <h1 class="text-center">Processed Ships</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Serial No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">status</th>
+        <th scope="col">Origin</th>
+        <th scope="col">Total Passengers</th>
+        <!-- <th scope="col"></th> -->
+      </tr>
+    </thead>
+    <% @processed.each_with_index do |ship, i| %>
+      <tbody>
+        <tr>
+          <th scope="row"><%= i + 1 %></th>
+          <td><%= ship.name %></td>
+          <td><%= ship.status %></td>
+          <td><%= ship.origin %></td>
+          <td><%= ship.passengers %></td>
+          <td><%#= link_to "Send to Processing", processing_ship_path(ship) %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+<% else %>
+  <h1 class="text-center">No Ships in processed!</h1>
+<% end %>

@@ -14,6 +14,9 @@ ActiveRecord::Schema.define(version: 2021_08_05_110627) do
 
   create_table "ships", force: :cascade do |t|
     t.string "name"
+    t.string "status"
+    t.string "origin"
+    t.bigint "passengers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
