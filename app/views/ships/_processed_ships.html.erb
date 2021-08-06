@@ -8,7 +8,6 @@
         <th scope="col">status</th>
         <th scope="col">Origin</th>
         <th scope="col">Total Passengers</th>
-        <!-- <th scope="col"></th> -->
       </tr>
     </thead>
     <% @processed.each_with_index do |ship, i| %>
@@ -19,7 +18,6 @@
           <td><%= ship.status %></td>
           <td><%= ship.origin %></td>
           <td><%= ship.passengers %></td>
-          <td><%#= link_to "Send to Processing", processing_ship_path(ship) %></td>
         </tr>
       </tbody>
     <% end %>
