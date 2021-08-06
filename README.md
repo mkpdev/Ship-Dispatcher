@@ -29,7 +29,8 @@ Things you may want to cover:
 
 # Service
 
-* ShipCreateService
+* https://github.com/mkpdev/Ship-Dispatcher/blob/master/app/services/ship_create_service.rb
+
 	This service call ShipCreate microservice to fetch arrived ship and store in database
 	with status arrived.
 
