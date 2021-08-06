@@ -19,7 +19,7 @@
             <td><%= ship.status %></td>
             <td><%= ship.origin %></td>
             <td><%= ship.passengers %></td>
-            <td><%= link_to "Send to queue", send_to_queue_ship_path(ship) %></td>
+            <td><%= link_to "Send to queue", ship_path(ship, status: "queue"), method: :put %></td>
           </tr>
         </tbody>
       <% end %>

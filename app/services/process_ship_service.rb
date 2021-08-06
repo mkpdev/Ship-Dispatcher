@@ -1,16 +1,24 @@
 class ProcessShipService
-	require 'net/http'
-	def processing
-		ship = Ship.queue.last
-		uri = URI.parse("http://localhost:3002/ship_processing/new")
-		response = Net::HTTP.post_form(uri, {"name" => ship.name})
+  require 'net/http'
 
-		update_status(ship, JSON.parse(response.body))
-	end
+  BASE_URL = 'http://localhost:3002'.freeze
 
-	private
+  def processing
+    ship = Ship.queue.last
 
-	def update_status(ship, data)
-		ship.update_attribute(:status, data['ship_params']['status'] )
-	end
+    return unless ship.present?
+
+    ship.update_attribute(:status, "processing")
+
+    uri = URI("#{BASE_URL}/ship_processing/new")
+    response = Net::HTTP.post_form(uri, {"name" => ship.name})
+
+    update_status(ship, JSON.parse(response.body))
+  end
+
+  private
+
+  def update_status(ship, data)
+    ship.update_attribute(:status, data['ship_params']['status'] )
+  end
 end

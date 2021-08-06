@@ -1,20 +1,23 @@
 class ShipCreateService
-	require 'net/http'
-	def create
-		url = URI.parse('http://localhost:3001/ship/new')
-		result = Net::HTTP.get(url)
+  require 'net/http'
 
-		create_ship(JSON.parse(result))
-	end
+  BASE_URL = 'http://localhost:3001'.freeze
 
-	private
+  def create
+    url = URI("#{BASE_URL}/ship/new")
+    result = Net::HTTP.get(url)
 
-	def create_ship(data)
-		Ship.create!(
-	      name: data['ship_params']['name'],
-	      origin: data['ship_params']['origin'],
-	      passengers: data['ship_params']['passengers'],
-	      status: "arrived"
-	    )
-	end
+    create_ship(JSON.parse(result))
+  end
+
+  private
+
+  def create_ship(data)
+    Ship.create!(
+        name: data['ship_params']['name'],
+        origin: data['ship_params']['origin'],
+        passengers: data['ship_params']['passengers'],
+        status: "arrived"
+      )
+  end
 end
