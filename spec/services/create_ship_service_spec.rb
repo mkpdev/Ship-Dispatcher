@@ -11,7 +11,6 @@ RSpec.describe ShipCreateService do
 
         it 'creates new ship' do
           expect(ship).to be_truthy
-          expect(ship.name).to eq 'Rhode Island sons'
           expect(ship.status).to eq 'arrived'
         end
       end 

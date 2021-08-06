@@ -5,8 +5,8 @@ RSpec.describe ProcessShipService do
   let!(:ship) { create(:ship, status: :queue) }
 
   describe '#processing' do
-    context 'when service called' do
-      VCR.use_cassette("get_ship") do
+    context 'update status' do
+      VCR.use_cassette("ship_process") do
 
         let(:ship_queue) { service.processing }
 

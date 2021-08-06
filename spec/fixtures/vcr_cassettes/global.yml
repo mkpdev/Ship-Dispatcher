@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3001/ship/new
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - localhost:3001
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"66c38b7474c6a116ed122eca986257b2"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f3d72d8a-5bf0-48d5-8e27-3be2e51b85df
+      X-Runtime:
+      - '43.276199'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"ship_params":{"name":"North Carolina lycanthropes","origin":"Reunion","passengers":48}}'
+  recorded_at: Fri, 06 Aug 2021 12:47:50 GMT
+- request:
+    method: post
+    uri: http://localhost:3002/ship_processing/new
+    body:
+      encoding: US-ASCII
+      string: name=New+Hampshire+rabbits
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - localhost:3002
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"8f1375448f37c8a70b85758e6d91aeef"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8c29a364-eade-4cca-8002-8aa7b36e8e96
+      X-Runtime:
+      - '55.125160'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"ship_params":{"status":"processed"}}'
+  recorded_at: Fri, 06 Aug 2021 12:48:45 GMT
+recorded_with: VCR 6.0.0
