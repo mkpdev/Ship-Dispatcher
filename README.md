@@ -29,22 +29,22 @@ Things you may want to cover:
 
 # Service
 
-* https://github.com/mkpdev/Ship-Dispatcher/blob/master/app/services/ship_create_service.rb
+* [ShipCreateService](https://github.com/mkpdev/Ship-Dispatcher/blob/master/app/services/ship_create_service.rb)
 
 	This service call ShipCreate microservice to fetch arrived ship and store in database
 	with status arrived.
 
-* ProcessShipService
+* [ProcessShipService](https://github.com/mkpdev/Ship-Dispatcher/blob/master/app/services/process_ship_service.rb)
 	This service call PrcoessShip microservice to process a ship.
 	It take queue status ship and return status proceed after processing.
 
 # Spec
 
-* CreateShipServiceSpec 
+  * [CreateShipServiceSpec](https://github.com/mkpdev/Ship-Dispatcher/blob/master/spec/services/create_ship_service_spec.rb) 
 	This spec is check the ShipCreate microservice response and store in the VCR cassette
 	and check ship status should be `arrived`.
 
-* ProcessShipServiceSpec
+* [ProcessShipServiceSpec](https://github.com/mkpdev/Ship-Dispatcher/blob/master/spec/services/process_ship_service_spec.rb)
 	This spec is check the ProcessShip microservice response and store in the VCR cassette
 	and check ship status should be `processed`.	
 
