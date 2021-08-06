@@ -1,22 +1,19 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Dispatcher App
 
 Things you may want to cover:
 
 * Ruby version
-	ruby 2.6.6p146
+	ruby 2.6.6
 
 * Rails version
 	Rails 5.2.6
 
 * Gem install
-	run = bundle install
+	`bundle install`
 
 * Create Database
-	run = rails db:create
-	run = rails db:migrate
+	`rails db:create`
+	`rails db:migrate`
 
 * To run rails server
 	rails s  
@@ -28,4 +25,25 @@ Things you may want to cover:
 	crontab -l
 
 * To run test cases
-	run - bundle exec rspec spec
+	`bundle exec rspec spec`
+
+# Service
+
+* ShipCreateService
+	This service call ShipCreate microservice to fetch arrived ship and store in database
+	with status arrived.
+
+* ProcessShipService
+	This service call PrcoessShip microservice to process a ship.
+	It take queue status ship and return status proceed after processing.
+
+# Spec
+
+* CreateShipServiceSpec 
+	This spec is check the ShipCreate microservice response and store in the VCR cassette
+	and check ship status should be `arrived`.
+
+* ProcessShipServiceSpec
+	This spec is check the ProcessShip microservice response and store in the VCR cassette
+	and check ship status should be `processed`.	
+
